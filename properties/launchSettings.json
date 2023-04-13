@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Utopic": {
+      "commandName": "Project",
+      "workingDirectory": "$(ProjectDir)"
+    }
+  }
+}

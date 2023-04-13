@@ -1,0 +1,151 @@
+﻿
+##########################
+#		 Utopia          #
+#	 Intellivision       #
+##########################
+
+
+BUILDINGS
+---------
+
+1. CROPS (3 gold bars)
+----------------------
+Income/Points: Each acre feeds approx. 500
+people. When rained upon, yields added revenue (approx. 1 gold bar per acre).
+Average life of an acre of crops is 3 rounds, but this number varies.
+
+2. REBEL SOLDIERS (30 gold bars)
+--------------------------------
+Aggression: Cause opponent to lose points or income.
+
+3. SCHOOL (35 gold bars)
+------------------------
+Income/Points: Increases well-being of people and productivity of factories.
+
+4. FACTORY (40 gold bars)
+-------------------------
+Income: Earns at least 4 gold bars per round. (More
+as well-being of people increases.) Pollution increases death rate.
+
+5. FORT (50 gold bars)
+----------------------
+Protection: Guards surrounding land area against rebels.
+Guards nearby fishing boats against pirates and opponent's PT boats.
+
+6. HOUSING PROJECT (60 gold bars)
+---------------------------------
+Points: Increases harmony on island by housing 500 people.
+
+7. HOSPITAL (75 gold bars)
+--------------------------
+Increases population and greatly increases factory productivity.
+
+8. PT BOAT (40 gold bars)
+-------------------------
+Protection/Aggression: Guards your fishing boat against pirates. 
+Sinks opponent's fishing boat.
+
+9. FISHING BOAT (25 gold bars)
+------------------------------
+Income/Points: Automatically feeds 500 people and earns 1 gold bar per round. 
+If moved over a school of fish, earns 1 gold bar for every second remaining over fish. 
+Can be sunk by pirates, PT boats or hurricanes.
+
+
+PIRATES AND PT BOATS
+--------------------
+* PT boats can sink opponent's fishing boat by occupying the same space.
+* PT boats cannot sink pirate ships or other PT boats.
+* PT boats can stop pirate ships by moving in front of them. Use a PT boat to protect a fishing boat in harbor.
+* PT boats can ONLY be sunk by hurricanes or tropical storms (rare).
+* PT boats cannot fish.
+* You cannot control BOTH PT boat and fishing boat at the same time.
+* Pirates can ONLY be sunk by hurricanes or tropical storms (rare).
+* Pirates can sink fishing boats by occupying the same space
+
+ENVIRONMENT
+-----------
+* HURRICANES usually lay waste to everything in their paths. Fishing boats will be sunk if moving, but have a chance of surviving if anchored. Everything else over
+  which the hurricane passes has a 2/3 chance of being leveled. As in real life, the faster a hurricane moves, the less damage it inflicts
+
+* RAIN STORMS help your crops grow. Try to plant where the rain most frequently falls. There are no set paths for rain, but you will notice general patterns.
+
+* TROPICAL STORMS bring a deluge. They may either help your crops or destroy them. On rare occasions, they may destroy a building or boat
+
+
+Scoring Logic
+-------------
+# The final big piece of code is the scoring logic. Scoring happens in four phases: Income Computation, Population Update, Round Score Calculation, Rebellion.
+
+	> Income Computation
+
+		* During the round, every gold bar you earn (say due to fishing, rain on crops, etc.) gets tallied in this round's Gross Domestic Product (Round GDP), separate from your actual gold bar balance. 
+		  That is, spending does not subtract from Round GDP even though it lowers your treasury balance.
+		* At the end of the round, you get awarded additional gold as follows. Each of these contributes to the Round GDP except for the "baseline 10 bars."
+			- 4 gold bars per factory
+			- 1 gold bar per fishing boat
+			- Productivity bonus: ((Schools + Hospitals) * Factories) + Hospitals, clamped to a maximum of 30 gold bars.
+			- 10 gold bars of baseline income (does not contribute to the Round GDP).
+
+
+	> Population computation -- expressed as a growth rate, resulting in exponential growth.
+
+		* Fertility computation
+			- Start with a baseline fertility rate of 5.0%
+			- Increase fertility by 0.3% for every crop
+			- Increase fertility by 0.3% for every hospital
+			- Increase fertility by 0.1% for every house
+			- Decrease fertility by 0.3% for every school
+			- Clamp fertility to a maximum of 6.4%. You can't have fertility above 6.4% even if you filled the island with schools.
+	    * Mortality computation
+			- Start with a baseline mortality rate of 1.1%
+			- Decrease mortality by 0.3% for every hospital, but not below 0.2%. (This limit is applied before the next step.)
+			- Increase mortality by 0.1% for every factory. If you fill the island with factories, your mortality rate will be 4.0%, matching the minimum allowed fertility.
+		* New population: Population + Population * Fertility - Population * Mortality. Maximum allowed population is limited to 9999.
+
+
+	> Round Score Calculation -- roughly, "approval rating", 0-100%
+
+		* First compute the following four subscores:
+			- Housing score: ((Houses * 500) / (Population / 100)) / 3. If larger than 30, clamp it to 30.
+			- Per-capita GDP score: ((Round GDP * 100) / (Population / 100)) / 12. If larger than 30, clamp it at 30.
+			- Food supply score: (((Fishing boats + Crops) * 500) / (Population / 100)) / 3. If this value is larger than 30, clamp it to 30.
+			- General welfare score: 1 point for every school or hospital
+		* Add up the four subscores, limiting the total to 100 or less. That's the per-round score.
+
+
+	> Rebellion
+
+		* Compare this round's score to the previous round, and consider it in absolute terms as well
+		* If it dropped by more than 10 points or is below 30 points, add a rebel
+		* If it increased by more than 10 points or is above 70 points, remove a rebel
+
+
+# If you want to see the exact details of how these pieces work, look at the code. For example, in the scoring section, some divides are rounding divides, and some are truncating divides. 
+  The population computation is actually carried out with scaled arithmetic (ie. fertility/mortality rates are multiplied by 10, and population divided by 10 when computing numbers of births and deaths.)
+
+
+HOW TO WIN THE GOVERNOR'S AWARD
+===============================
+1. Start with a greater number of shorter rounds (30 - 45 seconds), since earnings and points are added each round.
+
+2. Buy a fishing boat in the first round, and hang on to it. It's the only income source that you can really control.
+
+3. Get housing established early in the game, then go for a factory. Remember that factories cause a slow-down in population.
+
+4. Hospitals dramatically increase productivity, but they also boost population. Since the point value of each individual improvement 
+DECREASES as population increase, save hospital construction for late in the game.
+
+5. Do your planting early in the round. Crops planted late may disappear as soon as the round ends.
+
+6. Don't overplant. Crops are an unreliable source of income, since they depend on rain. They also require replanting.
+
+7. Don't drop anchor for long in the upper left section of screen. All hurricanes originate here.
+
+8. Prepare for the possibility of aggression. Build your town in a circle with a space left in the center for a fort, so it can protect 
+the entire town if necessary.
+
+9. Don't be afraid to take aggressive action yourself, if your score falls behind your opponent's. But build your fort first.
+
+10. As a cooperative tactic, BOTH players can invest in PT boats early in the game, then position the PT boats where they will block 
+the arrival of pirates. Pirates usually appear first in the corners.

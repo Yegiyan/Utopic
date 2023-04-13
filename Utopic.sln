@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utopic", "Utopic.csproj", "{03FF5588-B0C5-472F-A442-D37F82155791}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{03FF5588-B0C5-472F-A442-D37F82155791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03FF5588-B0C5-472F-A442-D37F82155791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03FF5588-B0C5-472F-A442-D37F82155791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03FF5588-B0C5-472F-A442-D37F82155791}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E169A4BF-9066-437D-87B2-780B98F7C129}
+	EndGlobalSection
+EndGlobal
