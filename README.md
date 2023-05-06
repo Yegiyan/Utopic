@@ -9,7 +9,7 @@ Some cool additions in this remake include:
 * An AI opponent to play against! AI vs AI also available
 * End game score screen
 
-Made with Visual Studio 2022 using Raylib's C# bindings
+Made and compiled with Visual Studio 2022 using Raylib's C# bindings
 
 Download the game at: https://yegiyan.itch.io/utopic
 
