@@ -4,7 +4,7 @@ This is the official source code repository for Utopic, a remake of Intellivisio
 
 ## About
 
-If you've ever muttered, "I'd certainly do better if I ruled that country", then this game is for you! Utopic is a faithful recreation of the classic 1981 Intellivision game, Utopia. Players are tasked with managing their territories and balancing resource gathering, population growth, and economic development in order to create the perfect Utopia.
+If you've ever muttered, "I'd certainly do better if I ruled that country", then this game is for you! Utopic is a faithful recreation of Utopia, a game regarded as the earliest ancestor of the real-time strategy genre. Players are tasked with managing their territories and balancing resource gathering, population growth, and economic development in order to create the perfect Utopia.
 
 ## Features
 
