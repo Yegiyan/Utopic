@@ -13,14 +13,15 @@ If you've ever muttered, "I'd certainly do better if I ruled that country", then
 * An AI opponent to play against! AI vs AI also available
 * End game score screen
 
-Download the game at: https://yegiyan.itch.io/utopic
-
-![Utopic](https://img.itch.zone/aW1hZ2UvMTMyOTg2LzExODExNDc5LnBuZw==/original/%2BSJJ7u.png)
-
 ## Requirements
 
 To build and run this game from the source code, you will need the following software:
 
-- Visual Studio 2022 (or later)
-- .NET 6.0 (or later)
-- Raylib 4.0 (or later)
+- [Visual Studio 2022 (or later)](https://visualstudio.microsoft.com/)
+- [.NET 6.0 (or later)](https://dotnet.microsoft.com/en-us/download)
+- [Raylib 4.0 (or later)](https://www.raylib.com/)
+
+
+Download the game at: https://yegiyan.itch.io/utopic
+
+![Utopic](https://img.itch.zone/aW1hZ2UvMTMyOTg2LzExODExNDc5LnBuZw==/original/%2BSJJ7u.png)
