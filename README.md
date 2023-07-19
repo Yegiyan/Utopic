@@ -1,6 +1,6 @@
 # Utopic
 
-This is the official source code repository for Utopic, a game developed using Visual Studio 2022 and Raylib's C# bindings.
+This is the official source code repository for Utopic, a remake of Intellivision's 1982 video game, Utopia! Developed using Visual Studio 2022 and Raylib's C# bindings.
 
 ## About
 
