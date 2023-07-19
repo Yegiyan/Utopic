@@ -8,7 +8,7 @@ If you've ever muttered, "I'd certainly do better if I ruled that country", then
 
 ## Features
 
-* Modifying the number of fish, pirates, weather, and gold
+* Modifying the number of starting fish, pirates, weather, and gold
 * Smaller tiles that give room for placing many more buildings
 * An AI opponent to play against! AI vs AI also available
 * End game score screen

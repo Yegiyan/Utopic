@@ -47,15 +47,15 @@ namespace Utopic.src
         public Weather()
         {
             cloud_time = new();
-            cloud_interval = TimeSpan.FromSeconds(0.04);
+            cloud_interval = TimeSpan.FromSeconds(0.04f);
             cloud_frame = new(241, 1);
 
             storm_time = new();
-            storm_inverval = TimeSpan.FromSeconds(0.04);
+            storm_inverval = TimeSpan.FromSeconds(0.04f);
             storm_frame = new(241, 64);
 
             hurricane_time = new();
-            hurricane_interval = TimeSpan.FromSeconds(0.15);
+            hurricane_interval = TimeSpan.FromSeconds(0.15f);
             hurricane_frame = new(448, 128);
 
             sfx_hurricane_spawn = LoadMusicStream("res/audio/HURRICANE_SPAWN.wav");
@@ -103,13 +103,13 @@ namespace Utopic.src
                 return;
             }
 
-            if (chance <= 0.74)
+            if (chance <= 0.74f)
                 Type = "CLOUD";
 
-            else if (chance >= 0.75 && chance <= 0.97)
+            else if (chance >= 0.75f && chance <= 0.97f)
                 Type = "STORM";
 
-            else if (chance >= 0.98 && chance <= 0.99)
+            else if (chance >= 0.98f && chance <= 0.99f)
                 Type = "HURRICANE";
         }
 

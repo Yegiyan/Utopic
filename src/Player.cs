@@ -470,7 +470,7 @@ namespace Utopic.src
         static float Round(float coord)
         {
             float remainder = coord % 23;
-            return (remainder >= 11.5) ? (coord - remainder + 23) : (coord - remainder);
+            return (remainder >= 11.5f) ? (coord - remainder + 23) : (coord - remainder);
         }
 
         protected bool IsKeyPressedWithBuffer(KeyboardKey key)

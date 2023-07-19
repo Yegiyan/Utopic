@@ -454,7 +454,7 @@ namespace Utopic.src
                     player.RoundGDP++;
                     id = player.buildings.ElementAt(i).ID;
 
-                    if (destruction_chance <= 0.10)
+                    if (destruction_chance <= 0.10f)
                     {
                         if (!MuteAudio) PlayMusicStream(sfx_storm_destroy);
                         player.Population -= rand.Next(0, 102);
@@ -473,7 +473,7 @@ namespace Utopic.src
                         player.RoundGDP++;
                     }
 
-                    if (destruction_chance <= 0.30)
+                    if (destruction_chance <= 0.30f)
                     {
                         if (!MuteAudio) PlayMusicStream(sfx_hurricane_destroy);
                         player.Population -= rand.Next(0, 102);
@@ -487,7 +487,7 @@ namespace Utopic.src
                 if (CheckCollisionRecs(player.boats.ElementAt(i).Collider, weather.Collider) && weather.Type == "STORM")
                 {
                     id = player.boats.ElementAt(i).ID;
-                    if (destruction_chance <= 0.01)
+                    if (destruction_chance <= 0.01f)
                     {
                         if (!MuteAudio) PlayMusicStream(sfx_boat_destroy);
                         player.DestroyUnit(player, id);
@@ -503,7 +503,7 @@ namespace Utopic.src
                         player.DestroyUnit(player, id);
                     }
 
-                    if (destruction_chance <= 0.10)
+                    if (destruction_chance <= 0.10f)
                     {
                         if (!MuteAudio) PlayMusicStream(sfx_hurricane_destroy);
                         player.DestroyUnit(player, id);
@@ -515,7 +515,7 @@ namespace Utopic.src
             {
                 if (CheckCollisionRecs(pirate_list.ElementAt(i).Collider, weather.Collider) && weather.Type == "STORM")
                 {
-                    if (destruction_chance <= 0.05)
+                    if (destruction_chance <= 0.05f)
                     {
                         if (!MuteAudio) PlayMusicStream(sfx_storm_destroy);
                         pirate_list.ElementAt(i).IsDestroyed = true;
@@ -551,7 +551,7 @@ namespace Utopic.src
 
                     if (!MuteAudio)
                     {
-                        if (chance <= .50)
+                        if (chance <= .50f)
                             PlayMusicStream(sfx_fish1);
                         else
                             PlayMusicStream(sfx_fish2);
@@ -592,7 +592,7 @@ namespace Utopic.src
         static float Round(float coord)
         {
             float remainder = coord % 23;
-            return (remainder >= 11.5) ? (coord - remainder + 23) : (coord - remainder);
+            return (remainder >= 11.5f) ? (coord - remainder + 23) : (coord - remainder);
         }
 
         public void DrawPlayers()

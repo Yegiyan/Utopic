@@ -37,7 +37,7 @@ namespace Utopic.src
             rand = new();
 
             fish_time = new();
-            fish_interval = TimeSpan.FromSeconds(0.5);
+            fish_interval = TimeSpan.FromSeconds(0.5f);
             RollFirstFishFrame();
 
             Type = type;
@@ -116,7 +116,7 @@ namespace Utopic.src
             if (dir_change_time >= dir_change_threshold)
             {
                 // 0.2% chance to change direction per second
-                if (rand.NextDouble() < 0.002 * deltaTime)
+                if (rand.NextDouble() < 0.002f * deltaTime)
                 {
                     Velocity = new Vector2((float)(rand.NextDouble() * 2 - 1), (float)(rand.NextDouble() * 2 - 1));
                     Vector2.Normalize(Velocity);
@@ -126,7 +126,7 @@ namespace Utopic.src
 
             if (speed_change_time >= speed_change_threshold)
             {
-                if (rand.NextDouble() < 0.003 * deltaTime)
+                if (rand.NextDouble() < 0.003f * deltaTime)
                     Speed = min_speed + (float)(rand.NextDouble() * (max_speed - min_speed));
                 speed_change_time = 0.0f;
             }
@@ -134,7 +134,7 @@ namespace Utopic.src
             if (move_center_time >= move_center_threshold)
             {
                 // 0.1% chance to move towards the center of the map per second
-                if (rand.NextDouble() < 0.001 * deltaTime && !CheckCollisionRecs(center_weight_col, Collider))
+                if (rand.NextDouble() < 0.001f * deltaTime && !CheckCollisionRecs(center_weight_col, Collider))
                 {
                     Vector2 center = new Vector2(550, 265);
                     Vector2 dir_to_center = Vector2.Subtract(center, Position);
