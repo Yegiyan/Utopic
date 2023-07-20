@@ -10,14 +10,14 @@ If you've ever muttered, "I'd certainly do better if I ruled that country", then
 
 * Modifying the number of starting fish, pirates, weather, and gold
 * Smaller tiles that give room for placing many more buildings
-* An AI opponent to play against! AI vs AI also available
+* An AI opponent to play against
 * End game score screen
 
 ## Requirements
 
-To build and run this game from the source code, you will need the following software:
+To build and run this game, you will need the following:
 
-- [Visual Studio 2022 (or later)](https://visualstudio.microsoft.com/)
+- [Visual Studio 2022](https://visualstudio.microsoft.com/)
 - [.NET 6.0 (or later)](https://dotnet.microsoft.com/en-us/download)
 - [Raylib 4.0 (or later)](https://www.raylib.com/)
 
