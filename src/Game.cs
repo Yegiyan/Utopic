@@ -349,13 +349,8 @@ namespace Utopic.src
 
             foreach (Building building in player.buildings)
             {
-                if (building.Type == "REBEL")
-                {
-                    if (rand.NextDouble() < .49)
-                        player.Gold -= rand.Next(0, 10);
-                    else
-                        player.Score -= rand.Next(0, 15);
-                }
+                if (building.Type == "REBEL" && rand.NextDouble() < .49)
+                    player.Score -= rand.Next(0, 15);
             }
 
             if (player.Gold < 0) player.Gold = 0;
